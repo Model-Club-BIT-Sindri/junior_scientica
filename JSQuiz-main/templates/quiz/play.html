@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if question is None %}
+<div class = "container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section id="section-jumbotron" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
+      <div class="container text-center">
+        <h1 class="display-1">You have already answered all of our questions. </h1>
+
+      </div>
+    </section>
+    <h1> </h1>
+</div>
+{% else %}
+
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <div class="jumbotron my-4">
+
+    <h3>{{ question.html|safe }}</h3>
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="question_pk" value="{{ question.pk }}">
+        {% for choice in question.choices.all %}
+          <div class="form-check mx-4">
+            <input class="form-check-input" type="radio" name="choice_pk" id="choice-{{ forloop.counter }}" value="{{ choice.pk }}">
+            <label class="form-check-label" for="choice-{{ forloop.counter }}">
+              {{ choice.html|safe }}
+            </label>
+          </div>
+
+        {% endfor %}
+        <br>
+        <input class="get-started-btn scrollto" type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}
