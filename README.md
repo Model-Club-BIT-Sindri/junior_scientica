@@ -45,20 +45,20 @@ Dependencies:
 
 ### 1. Clone this repository
 ```bash
-git clone https://github.com/akashgiricse/lets-quiz.git
+git clone https://github.com/Model-Club-BIT-Sindri/junior_scientica.git
 cd lets_quiz
 ```
 
 ### 3. Create the virtualenv
 ```bash
-## run following command from `lets_quiz` directory
-mkvirtualenv lets_quiz -a "$(pwd)" -p python3.6
+## run following command from `junior_scientica` directory
+mkvirtualenv junior_scientica -a "$(pwd)" -p python3.6
 ```
 
 ### 4. Install python packages
 ```bash
 ## Activate the virtualenv which you created on the last step
-workon lets_quiz
+workon junior_scientica
 cd ..
 pip install -r requirements.txt
 ```
@@ -66,11 +66,39 @@ pip install -r requirements.txt
 ### 5. Setup the database
 *TODO - Add instructions for this when I start using MySQL database.*
 
+### Change DataBase from AWS to sqlite3 
+*(IMPORTANT IF YOUR NOT A DEVLOPER AT MODEL CLUB)*
+Replace below code from settings.py 
+
+
+```DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'demo_1',
+        'USER': 'imran',
+        'PASSWORD':'nazir326',
+        'HOST':'database-1.c8wv9hegmm83.us-east-2.rds.amazonaws.com',
+        'PORT':'5432',
+    }
+}
+```
+To
+
+```DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+```
 ### 6. Run database migrations
 ```bash
 cd lets_quiz
 python manage.py migrate
 ```
+Please note - settings.py currently has AWS database set to default with no outbounds success Therefore Follow the above steps if you are not a devloper at MODEL CLUB.
+
+
 
 ### 7. Create superuser
 ```bash
