@@ -75,9 +75,9 @@ Replace below code from settings.py
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'demo_1',
-        'USER': 'imran',
-        'PASSWORD':'nazir326',
-        'HOST':'database-1.c8wv9hegmm83.us-east-2.rds.amazonaws.com',
+        'USER': '{User}',
+        'PASSWORD':'{password}',
+        'HOST':'{Amazon AWS Database}',
         'PORT':'5432',
     }
 }
