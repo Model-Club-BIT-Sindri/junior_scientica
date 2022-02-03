@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'jsquiz.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'demo_1',
-        'USER': 'imran',
-        'PASSWORD':'nazir326',
-        'HOST':'database-1.c8wv9hegmm83.us-east-2.rds.amazonaws.com',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
